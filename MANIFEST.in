@@ -1,0 +1,5 @@
+include AUTHORS
+include LICENSE
+include README.rst
+recursive-include pinax/images/static *
+recursive-include pinax/images/templates *
