@@ -31,7 +31,7 @@ This collection can be found at http://pinaxproject.com.
 pinax-images
 -------------
 
-`pinax-images`is an app for managing collections of images associated with a content object.
+`pinax-images` is an app for managing collections of images associated with a content object.
 
 
 Getting Started
