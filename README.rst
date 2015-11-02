@@ -19,7 +19,7 @@ Pinax Images
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target:  https://pypi.python.org/pypi/pinax-images/
 
-an app for managing collections of images associated with a content object
+
 
 
 Pinax
@@ -27,6 +27,11 @@ Pinax
 
 Pinax is an open-source platform built on the Django Web Framework. It is an ecosystem of reusable Django apps, themes, and starter project templates.
 This collection can be found at http://pinaxproject.com.
+
+pinax-images
+-------------
+
+`pinax-images`is an app for managing collections of images associated with a content object.
 
 
 Getting Started
@@ -75,6 +80,10 @@ to appear (if you are using the [associated ReactJS frontend](http://github.com/
     </div>
 
 
+Documentation
+---------------
+
+The pinax-images documentation is currently under construction. If you would like to help us write documentation, please join our Pinax Project Slack channel and let us know! The Pinax documentation is available at http://pinaxproject.com/pinax/.
 
 Code of Conduct
 ----------------
