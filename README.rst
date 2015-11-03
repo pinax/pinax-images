@@ -67,7 +67,7 @@ capture the `pk` for the `ImageSet` that is possibly created::
 
 
 Finally, you'll want to include a snippet like this wherever you want the panel
-to appear (if you are using the [associated ReactJS frontend](http://github.com/pinax/pinax-images-panel))::
+to appear (if you are using the associated ReactJS frontend (http://github.com/pinax/pinax-images-panel):
 
     {% if image_set %}
         {% url "images_set_upload" image_set.pk as upload_url %}
