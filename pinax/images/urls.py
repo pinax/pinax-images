@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from pinax.images import views
+from . import views
 
 urlpatterns = [
     url(r"^sets/new/upload/$", views.ImageUploadView.as_view(), name="images_set_new_upload"),
