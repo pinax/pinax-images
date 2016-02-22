@@ -1,17 +1,11 @@
 from django.conf.urls import url
 
-from .views import (
-    images,
-    images_upload,
-    images_delete,
-    images_make_primary
-)
-
+from pinax.images import views
 
 urlpatterns = [
-    url(r"^sets/new/upload/$", images_upload, name="images_set_new_upload"),
-    url(r"^sets/(?P<pk>\d+)/upload/$", images_upload, name="images_set_upload"),
-    url(r"^sets/(?P<pk>\d+)/$", images, name="images"),
-    url(r"^(?P<pk>\d+)/delete/$", images_delete, name="images_delete"),
-    url(r"^(?P<pk>\d+)/make-primary/$", images_make_primary, name="images_make_primary"),
+    url(r"^sets/new/upload/$", views.ImageUploadView.as_view(), name="images_set_new_upload"),
+    url(r"^sets/(?P<pk>\d+)/upload/$", views.ImageUploadView.as_view(), name="images_set_upload"),
+    url(r"^sets/(?P<pk>\d+)/$", views.ImagesView.as_view(), name="images"),
+    url(r"^(?P<pk>\d+)/delete/$", views.ImageDeleteView.as_view(), name="images_delete"),
+    url(r"^(?P<pk>\d+)/make-primary/$", views.ImageMakePrimaryView.as_view(), name="images_make_primary"),
 ]
