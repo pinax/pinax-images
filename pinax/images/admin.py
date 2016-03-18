@@ -5,7 +5,7 @@ from .models import ImageSet, Image
 
 class ImageInline(admin.TabularInline):
     model = Image
-    fields = ["image", "preview"]
+    fields = ["image", "created_by", "preview"]
     readonly_fields = ["preview"]
 
     def preview(self, obj):
