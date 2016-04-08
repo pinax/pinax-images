@@ -1,13 +1,9 @@
-# pinax-images
+# Pinax Images Documentation
 
-`pinax-images` is a image collection app for Django.
+[Pinax](http://pinaxproject.com/pinax/) is an open source ecosystem
+of reusable Django apps, themes, and starter project templates.
 
-!!! note "Pinax Ecosystem"
-    This app was developed as part of the Pinax ecosystem but is just a Django app
-    and can be used independently of other Pinax apps.
-
-    To learn more about Pinax, see <http://pinaxproject.com/>
-
+`pinax-images` is a reusable image collection app for Django.
 
 ## Quickstart
 
@@ -23,9 +19,14 @@ Add `pinax.images` to your `INSTALLED_APPS` setting:
         # ...
     )
 
+App-specific settings can be found in the [Settings](settings.md) document.
+
 Add an entry to your `urls.py`:
 
     url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+
+Follow directions in the [Usage](usage.md) document for adding image collection
+functionality to your application.
 
 
 ## Dependencies
