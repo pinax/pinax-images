@@ -19,7 +19,7 @@ Add `pinax.images` to your `INSTALLED_APPS` setting:
         # ...
     )
 
-App-specific settings can be found in the [Settings](settings.md) document.
+`pinax-images`-specific settings can be found in the [Settings](settings.md) document.
 
 Add an entry to your `urls.py`:
 
