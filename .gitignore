@@ -7,5 +7,7 @@ MANIFEST
 *.pyc
 *.egg-info
 *.egg
+.eggs/
 docs/_build/
 htmlcov/
+.python-version

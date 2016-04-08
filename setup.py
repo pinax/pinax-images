@@ -24,11 +24,15 @@ setup(
         "images": []
     },
     test_suite="runtests.runtests",
-    install_requires=[
-        "django-user-accounts>=1.2.0",
-        "django-imagekit>=3.2.7"
-    ],
     tests_require=[
+        "django-test-plus>=1.0.11",
+    ],
+    install_requires=[
+        "django-appconf>=1.0.1",
+        "django-imagekit>=3.2.7",
+        "pilkit>=1.1.13",
+        "pillow>=3.1.1",
+        "pytz>=2015.6",
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
