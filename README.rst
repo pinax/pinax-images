@@ -37,53 +37,7 @@ pinax-images
 Getting Started
 ----------------
 
-Execute::
-
-    pip install pinax-images
-
-
-Add to `INSTALLED_APPS`::
-
-    INSTALLED_APPS += ["pinax.images"]
-
-
-Add to `urls.py`::
-
-    url(r"^ajax/images/", include("pinax.images.urls")),
-
-
-Add a `ForeignKey` on your content object to `ImageSet`::
-
-    image_set = models.ForeignKey(ImageSet, blank=True, null=True)
-
-
-In your view or views for creating or updating the content object, you can
-capture the `pk` for the `ImageSet` that is possibly created::
-
-    pk = request.POST.get("imageset")
-    if pk and (object.image_set is None or object.image_set.pk != int(pk)):
-        object.image_set = next(iter(request.user.image_sets.filter(pk=pk)), None)
-    object.save()
-
-
-Finally, you'll want to include a snippet like this wherever you want the panel
-to appear (if you are using the associated ReactJS frontend (http://github.com/pinax/pinax-images-panel)):
-
-    {% if image_set %}
-        {% url "images_set_upload" image_set.pk as upload_url %}
-    {% else %}
-        {% url "images_set_new_upload" as upload_url %}
-    {% endif %}
-    <div id="image-panel" data-images-url="{% if image_set %}{% url "images" image_set.pk %}{% endif %}"
-                          data-upload-url="{{ upload_url }}"
-                          data-image-set-id="{{ image_set.pk }}">
-    </div>
-
-
-Documentation
----------------
-
-The ``pinax-images`` documentation is currently under construction. If you would like to help us write documentation, please join our Pinax Project Slack team and let us know! The Pinax documentation is available at http://pinaxproject.com/pinax/.
+Follow steps outlined in [Pinax Images Documentation](docs/index.md).
 
 
 Contribute
@@ -93,7 +47,7 @@ See this blog post http://blog.pinaxproject.com/2016/02/26/recap-february-pinax-
 
 In case of any questions we recommend you join our Pinax Slack team (http://slack.pinaxproject.com) and ping us there instead of creating an issue on GitHub. Creating issues on GitHub is of course also valid but we are usually able to help you faster if you ping us in Slack.
 
-We also highly recommend reading our Open Source and Self-Care blog post (http://blog.pinaxproject.com/2016/01/19/open-source-and-self-care/).  
+We also highly recommend reading our Open Source and Self-Care blog post (http://blog.pinaxproject.com/2016/01/19/open-source-and-self-care/).
 
 
 Code of Conduct
