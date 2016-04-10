@@ -18,11 +18,11 @@ Finally, you'll want to include a snippet like this wherever you want the panel
 to appear (if you are using the associated ReactJS frontend (http://github.com/pinax/pinax-images-panel)):
 
     {% if image_set %}
-        {% url "images_set_upload" image_set.pk as upload_url %}
+        {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
     {% else %}
-        {% url "images_set_new_upload" as upload_url %}
+        {% url "pinax_images:imageset_new_upload" as upload_url %}
     {% endif %}
-    <div id="image-panel" data-images-url="{% if image_set %}{% url "images" image_set.pk %}{% endif %}"
+    <div id="image-panel" data-images-url="{% if image_set %}{% url "pinax_images:imageset_detail" image_set.pk %}{% endif %}"
                           data-upload-url="{{ upload_url }}"
                           data-image-set-id="{{ image_set.pk }}">
     </div>

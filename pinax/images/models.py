@@ -16,6 +16,9 @@ def image_upload_to(instance, filename):
 
 
 class ImageSet(models.Model):
+    """
+    Container for a group of Images.
+    """
     primary_image = models.ForeignKey("Image", null=True, blank=True, on_delete=models.SET_NULL)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="image_sets")
     created_at = models.DateTimeField(default=timezone.now)
@@ -25,7 +28,7 @@ class ImageSet(models.Model):
             "pk": self.pk,
             "primaryImage": self.primary_image.data() if self.primary_image else {},
             "images": [image.data() for image in self.images.all()],
-            "upload_url": reverse("images_set_upload", args=[self.pk])
+            "upload_url": reverse("pinax_images:imageset_upload", args=[self.pk])
         }
 
 
@@ -61,6 +64,6 @@ class Image(models.Model):
             "small_thumbnail": self.small_thumbnail.url,
             "list_thumbnail": self.list_thumbnail.url,
             "filename": self.original_filename,
-            "delete_url": reverse("images_delete", args=[self.pk]),
-            "make_primary_url": reverse("images_make_primary", args=[self.pk])
+            "delete_url": reverse("pinax_images:image_delete", args=[self.pk]),
+            "make_primary_url": reverse("pinax_images:image_make_primary", args=[self.pk])
         }

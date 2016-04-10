@@ -3,43 +3,11 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import View
 from django.views.generic.detail import SingleObjectMixin
 
-from pinax.images.models import Image
-
-try:
-    from account.mixins import LoginRequiredMixin
-except ImportError:
-    from django.contrib.auth.mixins import LoginRequiredMixin
+from .compat import LoginRequiredMixin
+from .models import Image, ImageSet
 
 
-class ImagesView(LoginRequiredMixin, SingleObjectMixin, View):
-
-    def get_object(self, queryset=None):
-        return get_object_or_404(self.request.user.image_sets.all(), pk=self.kwargs.get(self.pk_url_kwarg))
-
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        return JsonResponse(self.object.image_data())
-
-
-class ImageDeleteView(LoginRequiredMixin, SingleObjectMixin, View):
-    model = Image
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        self.object.delete()
-        return JsonResponse(self.object.image_set.image_data())
-
-
-class ImageMakePrimaryView(LoginRequiredMixin, SingleObjectMixin, View):
-    model = Image
-
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        self.object.toggle_primary()
-        return JsonResponse(self.object.image_set.image_data())
-
-
-class ImageUploadView(LoginRequiredMixin, View):
+class ImageSetUploadView(LoginRequiredMixin, View):
     image_set = None
 
     def get_image_set(self):
@@ -57,3 +25,40 @@ class ImageUploadView(LoginRequiredMixin, View):
                 created_by=request.user
             )
         return JsonResponse(self.image_set.image_data())
+
+
+class ImageSetDetailView(LoginRequiredMixin, SingleObjectMixin, View):
+    model = ImageSet
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(
+            self.request.user.image_sets.all(),
+            pk=self.kwargs.get(self.pk_url_kwarg)
+        )
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return JsonResponse(self.object.image_data())
+
+
+class ImageDeleteView(LoginRequiredMixin, SingleObjectMixin, View):
+    model = Image
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return JsonResponse(self.object.image_set.image_data())
+
+
+class ImageTogglePrimaryView(LoginRequiredMixin, SingleObjectMixin, View):
+    """
+    Make the specified image "primary" for the ImageSet if not already,
+    or reset ImageSet primary image to None if specified image is currently
+    set as the primary image.
+    """
+    model = Image
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.toggle_primary()
+        return JsonResponse(self.object.image_set.image_data())
