@@ -48,17 +48,20 @@ except ImportError:
 
 
 try:
-    from django.contrib.auth.mixins import LoginRequiredMixin
+    from account.mixins import LoginRequiredMixin
 except ImportError:
+    try:
+        from django.contrib.auth.mixins import LoginRequiredMixin
+    except ImportError:
 
-    class LoginRequiredMixin(AccessMixin):  # noqa
-        """
-        CBV mixin which verifies that the current user is authenticated.
-        """
-        def dispatch(self, request, *args, **kwargs):
-            if not request.user.is_authenticated():
-                return self.handle_no_permission()
-            return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
+        class LoginRequiredMixin(AccessMixin):  # noqa
+            """
+            CBV mixin which verifies that the current user is authenticated.
+            """
+            def dispatch(self, request, *args, **kwargs):
+                if not request.user.is_authenticated():
+                    return self.handle_no_permission()
+                return super(LoginRequiredMixin, self).dispatch(request, *args, **kwargs)
 
 
 try:
