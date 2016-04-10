@@ -16,7 +16,7 @@ setup(
     description="an app for managing collections of images associated with a content object",
     name="pinax-images",
     long_description=read("README.rst"),
-    version="0.1",
+    version="0.1.1",
     url="http://github.com/pinax/pinax-images/",
     license="MIT",
     packages=find_packages(),
