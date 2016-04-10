@@ -25,6 +25,7 @@ setup(
     },
     test_suite="runtests.runtests",
     install_requires=[
+        "Pillow",
         "django-user-accounts>=1.2.0",
         "django-imagekit>=3.2.7"
     ],
