@@ -7,26 +7,25 @@ of reusable Django apps, themes, and starter project templates.
 
 ## Quickstart
 
-Install the development version:
+To install pinax-images:
 
     pip install pinax-images
 
 Add `pinax.images` to your `INSTALLED_APPS` setting:
 
     INSTALLED_APPS = (
-        # ...
+        ...
         "pinax.images",
-        # ...
+        ...
     )
 
-`pinax-images`-specific settings can be found in the [Settings](settings.md) document.
+`pinax-images`-specific settings can be found in the [Settings](./settings.md) document.
 
 Add an entry to your `urls.py`:
 
     url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
 
-Follow directions in the [Usage](usage.md) document for adding image collection
-functionality to your application.
+Refer to [Usage](./usage.md) for adding image collection functionality to your application.
 
 
 ## Dependencies
@@ -36,3 +35,7 @@ functionality to your application.
 * `pilkit>=1.1.13`
 * `pillow>=3.0`
 * `pytz>=2015.6`
+
+## Changelog
+
+See [Changelog](./changelog.md).
