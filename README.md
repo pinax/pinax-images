@@ -10,17 +10,16 @@
 
 ## Pinax
 
-Pinax is an open-source platform built on the Django Web Framework. It is an ecosystem of reusable Django apps, themes, and starter project templates.
-This collection can be found at http://pinaxproject.com.
+[Pinax](http://pinaxproject.com/pinax/) is an open-source platform built on the
+Django Web Framework. It is an ecosystem of reusable Django apps, themes, and
+starter project templates.
 
-
-This app was developed as part of the Pinax ecosystem but is just a Django app and can be used independently of other Pinax apps.
-
+This app is part of the Pinax ecosystem and is designed for use both with and
+independently of other Pinax apps.
 
 ## pinax-images
--------------
 
-`pinax-images` is an app for managing collections of images associated with a content object.
+`pinax-images` is an app for managing collections of images associated with any content object.
 
 
 ## Getting Started and Documentation

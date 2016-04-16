@@ -1,21 +1,25 @@
 # Usage
 
-Add a `ForeignKey` on your content object to `ImageSet`::
+First, add a `OneToOneField` on your content object to `ImageSet`::
 
-    image_set = models.ForeignKey(ImageSet, blank=True, null=True)
+    from pinax.images.models import ImageSet
 
+    class YourModel():
+        ...
+        image_set = models.OneToOneField(ImageSet)
+        ...
 
-In your view or views for creating or updating the content object, you can
-capture the `pk` for the `ImageSet` that is possibly created::
+In your view for creating your content object, you should create a
+new ImageSet for each new content object:
 
-    pk = request.POST.get("imageset")
-    if pk and (object.image_set is None or object.image_set.pk != int(pk)):
-        object.image_set = next(iter(request.user.image_sets.filter(pk=pk)), None)
-    object.save()
+    class ObjectCreateView(CreateView):
 
+        def form_valid(self, form):
+            form.instance.image_set = ImageSet.objects.create(created_by=self.request.user)
+            return super(CloudSpottingCreateView, self).form_valid(form)
 
-Finally, you'll want to include a snippet like this wherever you want the panel
-to appear (if you are using the associated ReactJS frontend (http://github.com/pinax/pinax-images-panel)):
+Finally, you'll want to include a snippet like this wherever you want the image panel
+to appear (if you are using the associated [pinax-images-panel](http://github.com/pinax/pinax-images-panel) ReactJS frontend):
 
     {% if image_set %}
         {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
