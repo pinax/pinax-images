@@ -7,7 +7,6 @@
 [![](https://img.shields.io/pypi/v/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://pypi.python.org/pypi/pinax-images/)
 
-
 ## Pinax
 
 [Pinax](http://pinaxproject.com/pinax/) is an open-source platform built on the
@@ -20,7 +19,6 @@ independently of other Pinax apps.
 ## pinax-images
 
 `pinax-images` is an app for managing collections of images associated with any content object.
-
 
 ## Getting Started and Documentation
 
