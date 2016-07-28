@@ -1,7 +1,8 @@
 [run]
-source = pinax
-omit = pinax/images/tests/*,pinax/images/admin.py
+source = pinax/images
+omit = pinax/images/*/tests, pinax/images/admin.py
 branch = 1
 
 [report]
-omit = pinax/images/tests/*,pinax/images/admin.py
+omit = pinax/images/*/tests, pinax/images/admin.py
+

@@ -16,7 +16,7 @@ setup(
     description="an app for managing collections of images associated with a content object",
     name="pinax-images",
     long_description=read("README.md"),
-    version="1.0.0",
+    version="2.0.0",
     url="http://github.com/pinax/pinax-images/",
     license="MIT",
     packages=find_packages(),
@@ -26,13 +26,14 @@ setup(
     test_suite="runtests.runtests",
     tests_require=[
         "django-test-plus>=1.0.11",
+        "mock>=2.0.0",
     ],
     install_requires=[
         "django-appconf>=1.0.1",
         "django-imagekit>=3.2.7",
         "pilkit>=1.1.13",
-        "pillow>=3.1.1",
-        "pytz>=2015.6",
+        "pillow>=3.3.0",
+        "pytz>=2016.6.1",
     ],
     classifiers=[
         "Development Status :: 4 - Beta",
