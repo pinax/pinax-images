@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.0.1
+
+* Update test matrix to include Django 1.10 and exclude Django dev branch
+
 ## 2.0.0
 
 * Revise access permissions for some views:

@@ -33,8 +33,8 @@ Refer to [Usage](./usage.md) for adding image collection functionality to your a
 * `django-appconf>=1.0.1`
 * `django-imagekit>=3.2.7`
 * `pilkit>=1.1.13`
-* `pillow>=3.0`
-* `pytz>=2015.6`
+* `pillow>=3.4.2`
+* `pytz>=2016.6.1`
 
 ## Changelog
 
