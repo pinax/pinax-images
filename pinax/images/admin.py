@@ -9,7 +9,9 @@ class ImageInline(admin.TabularInline):
     readonly_fields = ["preview"]
 
     def preview(self, obj):
-        return "<img src='{}' />".format(obj.small_thumbnail.url)
+        if obj.pk:
+            return "<img src='{}' />".format(obj.small_thumbnail.url)
+        return "Upload image for preview"
     preview.allow_tags = True
 
 
