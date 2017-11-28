@@ -1,3 +1,5 @@
+![](http://pinaxproject.com/pinax-design/patches/pinax-images.svg)
+
 # Pinax Images
 
 [![](http://slack.pinaxproject.com/badge.svg)](http://slack.pinaxproject.com/)
@@ -39,9 +41,6 @@ independently of other Pinax apps.
 
 ## Getting Started and Documentation
 
-Follow steps outlined in [Pinax Images Documentation](docs/index.md).
-
-
 ### Quickstart
 
 To install pinax-images:
@@ -56,13 +55,13 @@ Add `pinax.images` to your `INSTALLED_APPS` setting:
         ...
     )
 
-`pinax-images`-specific settings can be found in the [Settings](./settings.md) document.
+`pinax-images`-specific settings can be found in the [Settings](#settings) document.
 
 Add an entry to your `urls.py`:
 
     url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
 
-Refer to [Usage](./usage.md) for adding image collection functionality to your application.
+Refer to [Usage](#usage) for adding image collection functionality to your application.
 
 
 ### Dependencies
