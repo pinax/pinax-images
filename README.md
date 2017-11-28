@@ -55,7 +55,7 @@ Add `pinax.images` to your `INSTALLED_APPS` setting:
         ...
     )
 
-`pinax-images`-specific settings can be found in the [Settings](#settings) document.
+`pinax-images`-specific settings can be found in the [Settings](#settings) section.
 
 Add an entry to your `urls.py`:
 
@@ -138,6 +138,10 @@ and overriding pinax-image specs in your application `settings.py`::
     
     
 ## Change Log
+
+### 3.0.0
+
+* Move documentation to README.md
 
 ### 2.0.0
 
