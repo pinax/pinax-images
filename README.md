@@ -139,7 +139,7 @@ and overriding pinax-image specs in your application `settings.py`::
     
 ## Change Log
 
-### 3.0.0
+### Next
 
 * Move documentation to README.md
 
