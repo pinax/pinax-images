@@ -1,3 +1,5 @@
+![](http://pinaxproject.com/pinax-design/patches/pinax-images.svg)
+
 # Pinax Images
 
 [![](http://slack.pinaxproject.com/badge.svg)](http://slack.pinaxproject.com/)
@@ -6,6 +8,7 @@
 [![](https://img.shields.io/pypi/dm/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 [![](https://img.shields.io/pypi/v/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://pypi.python.org/pypi/pinax-images/)
+
 
 ## Pinax
 
@@ -16,13 +19,158 @@ starter project templates.
 This app is part of the Pinax ecosystem and is designed for use both with and
 independently of other Pinax apps.
 
+
 ## pinax-images
 
 `pinax-images` is an app for managing collections of images associated with any content object.
 
+
+## Table of Contents
+
+* [Getting Started and Documentation](#getting-started-and-documentation)
+* [Quickstart](#quickstart)
+* [Dependencies](#dependencies)
+* [Usage](#usage)
+* [Settings](#settings)
+* [Customizing Thumbnail Specs](#customizing-thumbnail-specs)
+* [Change Log](#change-log)
+* [Contribute](#contribute)
+* [Code of Conduct](#code-of-conduct)
+* [Pinax Project Blog and Twitter](#pinax-project-blog-and-twitter)
+
+
 ## Getting Started and Documentation
 
-Follow steps outlined in [Pinax Images Documentation](docs/index.md).
+### Quickstart
+
+To install pinax-images:
+
+    pip install pinax-images
+
+Add `pinax.images` to your `INSTALLED_APPS` setting:
+
+    INSTALLED_APPS = (
+        ...
+        "pinax.images",
+        ...
+    )
+
+`pinax-images`-specific settings can be found in the [Settings](#settings) section.
+
+Add an entry to your `urls.py`:
+
+    url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+
+Refer to [Usage](#usage) for adding image collection functionality to your application.
+
+
+### Dependencies
+
+* `django-appconf>=1.0.1`
+* `django-imagekit>=3.2.7`
+* `pilkit>=1.1.13`
+* `pillow>=3.0`
+* `pytz>=2015.6`
+
+
+## Usage
+
+First, add a `OneToOneField` on your content object to `ImageSet`::
+
+    from pinax.images.models import ImageSet
+
+    class YourModel():
+        ...
+        image_set = models.OneToOneField(ImageSet)
+        ...
+
+In your view for creating your content object, you should create a
+new ImageSet for each new content object:
+
+    class ObjectCreateView(CreateView):
+
+        def form_valid(self, form):
+            form.instance.image_set = ImageSet.objects.create(created_by=self.request.user)
+            return super(CloudSpottingCreateView, self).form_valid(form)
+
+Finally, you'll want to include a snippet like this wherever you want the image panel
+to appear (if you are using the associated [pinax-images-panel](http://github.com/pinax/pinax-images-panel) ReactJS frontend):
+
+    {% if image_set %}
+        {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
+    {% else %}
+        {% url "pinax_images:imageset_new_upload" as upload_url %}
+    {% endif %}
+    <div id="image-panel" data-images-url="{% if image_set %}{% url "pinax_images:imageset_detail" image_set.pk %}{% endif %}"
+                          data-upload-url="{{ upload_url }}"
+                          data-image-set-id="{{ image_set.pk }}">
+    </div>
+    
+    
+## Settings
+
+The following settings allow you to specify the behavior of `pinax-images` in
+your project.
+
+### Customizing Thumbnail Specs
+
+By default `pinax-images` maintains four thumbnail specifications for thumbnail generation of uploaded images.
+These specifications (shown below) are located in `pinax/images/specs.py`.
+
+    PINAX_IMAGES_THUMBNAIL_SPEC = "pinax.images.specs.ImageThumbnail"
+    PINAX_IMAGES_LIST_THUMBNAIL_SPEC = "pinax.images.specs.ImageListThumbnail"
+    PINAX_IMAGES_SMALL_THUMBNAIL_SPEC = "pinax.images.specs.ImageSmallThumbnail"
+    PINAX_IMAGES_MEDIUM_THUMBNAIL_SPEC = "pinax.images.specs.ImageMediumThumbnail"
+
+You can customize thumbnailing options by creating your own specification class inheriting from `ImageSpec`:
+
+    from imagekit import ImageSpec
+    from pilkit.processors import ResizeToFit
+
+    class MyCustomImageThumbnail(ImageSpec):
+        processors = [ResizeToFit(800, 600)]
+        format = "JPEG"
+        options = {"quality": 90}
+
+and overriding pinax-image specs in your application `settings.py`::
+
+    PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
+    
+    
+## Change Log
+
+### 3.0.0
+
+* Move documentation to README.md
+
+### 2.0.0
+
+* Revise access permissions for some views:
+
+  * ImageSet detail view now accessible by any authenticated user
+  * Image delete view now accessible only by image owner.
+  * Image "toggle primary" view now accessible only by image owner.
+
+### 1.0.0
+
+* Update version for Pinax 16.04 release
+
+### 0.2.1
+
+* Improve documentation
+
+### 0.2.0
+
+* Make DUA an optional requirement [PR #14](https://github.com/pinax/pinax-images/pull/14)
+
+### 0.1.1
+
+* add Pillow to install requires
+
+
+### 0.1
+
+* initial release
 
 
 ## Contribute
