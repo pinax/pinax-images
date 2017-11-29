@@ -139,7 +139,7 @@ and overriding pinax-image specs in your application `settings.py`::
 
 ## Change Log
 
-### Next
+### 2.2.0
 
 * Move documentation to README.md
 * Change `upload_to` path to have the image set PK
