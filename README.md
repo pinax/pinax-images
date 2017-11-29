@@ -105,8 +105,8 @@ to appear (if you are using the associated [pinax-images-panel](http://github.co
                           data-upload-url="{{ upload_url }}"
                           data-image-set-id="{{ image_set.pk }}">
     </div>
-    
-    
+
+
 ## Settings
 
 The following settings allow you to specify the behavior of `pinax-images` in
@@ -135,13 +135,18 @@ You can customize thumbnailing options by creating your own specification class 
 and overriding pinax-image specs in your application `settings.py`::
 
     PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
-    
-    
+
+
 ## Change Log
 
 ### Next
 
 * Move documentation to README.md
+* Change `upload_to` path to have the image set PK
+
+### 2.1.0
+
+* Only how thumbnail if one exists
 
 ### 2.0.0
 
