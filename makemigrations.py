@@ -15,7 +15,7 @@ DEFAULT_SETTINGS = dict(
         "pinax.images",
         "pinax.images.tests"
     ],
-    MIDDLEWARE_CLASSES=[],
+    MIDDLEWARE=[],
     DATABASES={
         "default": {
             "ENGINE": "django.db.backends.sqlite3",

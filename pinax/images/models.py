@@ -1,10 +1,11 @@
 import uuid
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
+
 from imagekit.models import ImageSpecField
 
 
@@ -20,7 +21,7 @@ class ImageSet(models.Model):
     Container for a group of Images.
     """
     primary_image = models.ForeignKey("Image", null=True, blank=True, on_delete=models.SET_NULL)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="image_sets")
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="image_sets", on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
 
     def image_data(self):
@@ -34,10 +35,10 @@ class ImageSet(models.Model):
 
 @python_2_unicode_compatible
 class Image(models.Model):
-    image_set = models.ForeignKey(ImageSet, related_name="images")
+    image_set = models.ForeignKey(ImageSet, related_name="images", on_delete=models.CASCADE)
     image = models.ImageField(upload_to=image_upload_to)
     original_filename = models.CharField(max_length=500)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="images")
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="images", on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
 
     thumbnail = ImageSpecField(source="image", id="pinax_images:image:thumbnail")

@@ -1,6 +1,7 @@
 from django.apps import AppConfig as BaseAppConfig
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
 from imagekit import register
 
 from .utils import load_path_attr

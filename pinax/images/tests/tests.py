@@ -1,11 +1,10 @@
-import mock
-
 from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
-from .test import TestCase
+from ..compat import mock
 from ..models import Image
+from .test import TestCase
 
 
 class ImageSetUploadView(TestCase):
@@ -13,8 +12,8 @@ class ImageSetUploadView(TestCase):
     def setUp(self):
         self.user = self.make_user("arthur")
         self.image_file = SimpleUploadedFile(
-            name='foo.gif',
-            content=b'GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00'
+            name="foo.gif",
+            content=b"GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00"
         )
 
         self.mock_file = mock.Mock(spec=File)
@@ -73,8 +72,8 @@ class ImageSetMixin(object):
         self.image = Image.objects.create(
             image_set=self.image_set,
             image=SimpleUploadedFile(
-                name='foo.gif',
-                content=b'GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00'
+                name="foo.gif",
+                content=b"GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00"
             ),
             original_filename="foo.gif",
             created_by=self.user

@@ -2,12 +2,14 @@
 
 # Pinax Images
 
-[![](http://slack.pinaxproject.com/badge.svg)](http://slack.pinaxproject.com/)
-[![](https://img.shields.io/travis/pinax/pinax-images.svg)](https://travis-ci.org/pinax/pinax-images)
-[![](https://img.shields.io/coveralls/pinax/pinax-images.svg)](https://coveralls.io/r/pinax/pinax-images)
-[![](https://img.shields.io/pypi/dm/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 [![](https://img.shields.io/pypi/v/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://pypi.python.org/pypi/pinax-images/)
+[![](https://img.shields.io/circleci/project/github/pinax/pinax-images.svg)](https://circleci.com/gh/pinax/pinax-images)
+[![](https://img.shields.io/codecov/c/github/pinax/pinax-images.svg)](https://codecov.io/gh/pinax/pinax-images)
+[![](https://img.shields.io/github/contributors/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/graphs/contributors)
+[![](https://img.shields.io/github/issues-pr/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/pulls)
+[![](https://img.shields.io/github/issues-pr-closed/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/pulls?q=is%3Apr+is%3Aclosed)
+[![](http://slack.pinaxproject.com/badge.svg)](http://slack.pinaxproject.com/)
 
 
 ## Pinax
@@ -49,17 +51,21 @@ To install pinax-images:
 
 Add `pinax.images` to your `INSTALLED_APPS` setting:
 
-    INSTALLED_APPS = (
-        ...
-        "pinax.images",
-        ...
-    )
+```python
+INSTALLED_APPS = (
+    ...
+    "pinax.images",
+    ...
+)
+```
 
 `pinax-images`-specific settings can be found in the [Settings](#settings) section.
 
 Add an entry to your `urls.py`:
 
-    url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+```python
+url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+```
 
 Refer to [Usage](#usage) for adding image collection functionality to your application.
 
@@ -77,35 +83,40 @@ Refer to [Usage](#usage) for adding image collection functionality to your appli
 
 First, add a `OneToOneField` on your content object to `ImageSet`::
 
-    from pinax.images.models import ImageSet
+```python
+from pinax.images.models import ImageSet
 
-    class YourModel():
-        ...
-        image_set = models.OneToOneField(ImageSet)
-        ...
+class YourModel():
+    ...
+    image_set = models.OneToOneField(ImageSet)
+    ...
+```
 
 In your view for creating your content object, you should create a
 new ImageSet for each new content object:
 
-    class ObjectCreateView(CreateView):
+```python
+class ObjectCreateView(CreateView):
 
-        def form_valid(self, form):
-            form.instance.image_set = ImageSet.objects.create(created_by=self.request.user)
-            return super(CloudSpottingCreateView, self).form_valid(form)
+    def form_valid(self, form):
+        form.instance.image_set = ImageSet.objects.create(created_by=self.request.user)
+        return super(CloudSpottingCreateView, self).form_valid(form)
+```
 
 Finally, you'll want to include a snippet like this wherever you want the image panel
 to appear (if you are using the associated [pinax-images-panel](http://github.com/pinax/pinax-images-panel) ReactJS frontend):
 
-    {% if image_set %}
-        {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
-    {% else %}
-        {% url "pinax_images:imageset_new_upload" as upload_url %}
-    {% endif %}
-    <div id="image-panel" data-images-url="{% if image_set %}{% url "pinax_images:imageset_detail" image_set.pk %}{% endif %}"
-                          data-upload-url="{{ upload_url }}"
-                          data-image-set-id="{{ image_set.pk }}">
-    </div>
-
+```django
+{% if image_set %}
+    {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
+{% else %}
+    {% url "pinax_images:imageset_new_upload" as upload_url %}
+{% endif %}
+<div id="image-panel" data-images-url="{% if image_set %}{% url "pinax_images:imageset_detail" image_set.pk %}{% endif %}"
+                        data-upload-url="{{ upload_url }}"
+                        data-image-set-id="{{ image_set.pk }}">
+</div>
+```
 
 ## Settings
 
@@ -117,27 +128,36 @@ your project.
 By default `pinax-images` maintains four thumbnail specifications for thumbnail generation of uploaded images.
 These specifications (shown below) are located in `pinax/images/specs.py`.
 
-    PINAX_IMAGES_THUMBNAIL_SPEC = "pinax.images.specs.ImageThumbnail"
-    PINAX_IMAGES_LIST_THUMBNAIL_SPEC = "pinax.images.specs.ImageListThumbnail"
-    PINAX_IMAGES_SMALL_THUMBNAIL_SPEC = "pinax.images.specs.ImageSmallThumbnail"
-    PINAX_IMAGES_MEDIUM_THUMBNAIL_SPEC = "pinax.images.specs.ImageMediumThumbnail"
+```python
+PINAX_IMAGES_THUMBNAIL_SPEC = "pinax.images.specs.ImageThumbnail"
+PINAX_IMAGES_LIST_THUMBNAIL_SPEC = "pinax.images.specs.ImageListThumbnail"
+PINAX_IMAGES_SMALL_THUMBNAIL_SPEC = "pinax.images.specs.ImageSmallThumbnail"
+PINAX_IMAGES_MEDIUM_THUMBNAIL_SPEC = "pinax.images.specs.ImageMediumThumbnail"
+```
 
 You can customize thumbnailing options by creating your own specification class inheriting from `ImageSpec`:
 
-    from imagekit import ImageSpec
-    from pilkit.processors import ResizeToFit
+```python
+from imagekit import ImageSpec
+from pilkit.processors import ResizeToFit
 
-    class MyCustomImageThumbnail(ImageSpec):
-        processors = [ResizeToFit(800, 600)]
-        format = "JPEG"
-        options = {"quality": 90}
+class MyCustomImageThumbnail(ImageSpec):
+    processors = [ResizeToFit(800, 600)]
+    format = "JPEG"
+    options = {"quality": 90}
+```
 
 and overriding pinax-image specs in your application `settings.py`::
 
-    PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
-
+```python
+PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
+```
 
 ## Change Log
+
+### 3.0.0
+
+* Upgrade for Django 2.0
 
 ### 2.2.0
 

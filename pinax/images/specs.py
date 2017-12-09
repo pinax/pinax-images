@@ -1,5 +1,5 @@
 from imagekit import ImageSpec
-from pilkit.processors import SmartResize, ResizeToFit
+from pilkit.processors import ResizeToFit, SmartResize
 
 
 class ImageThumbnail(ImageSpec):
