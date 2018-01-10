@@ -1,5 +1,6 @@
 from setuptools import find_packages, setup
 
+VERSION = "3.0.0"
 LONG_DESCRIPTION = """
 .. image:: http://pinaxproject.com/pinax-design/patches/pinax-images.svg
     :target: https://pypi.python.org/pypi/pinax-images/
@@ -46,7 +47,7 @@ setup(
     description="an app for managing collections of images associated with a content object",
     name="pinax-images",
     long_description=LONG_DESCRIPTION,
-    version="3.0.0",
+    version=VERSION,
     url="http://github.com/pinax/pinax-images/",
     license="MIT",
     packages=find_packages(),

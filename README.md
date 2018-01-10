@@ -67,23 +67,27 @@ Add `pinax.images` to your `INSTALLED_APPS` setting:
 
 ```python
 INSTALLED_APPS = (
-    ...
+    # other apps
     "pinax.images",
-    ...
 )
 ```
 
 `pinax-images`-specific settings can be found in the [Settings](#settings) section.
 
-Add an entry to your `urls.py`:
+Add `pinax.images.urls` to your project urlpatterns:
 
 ```python
-url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+    urlpatterns = [
+        # other urls
+        url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
+    ]
 ```
 
-Refer to [Usage](#usage) for adding image collection functionality to your application.
+
 
 ### Usage
+
+Adding image collection functionality to your application!
 
 First, add a `OneToOneField` on your content object to `ImageSet`::
 
@@ -91,9 +95,8 @@ First, add a `OneToOneField` on your content object to `ImageSet`::
 from pinax.images.models import ImageSet
 
 class YourModel():
-    ...
+    # other fields
     image_set = models.OneToOneField(ImageSet)
-    ...
 ```
 
 In your view for creating your content object, you should create a
@@ -110,7 +113,7 @@ class ObjectCreateView(CreateView):
 Finally, you'll want to include a snippet like this wherever you want the image panel
 to appear (if you are using the associated [pinax-images-panel](http://github.com/pinax/pinax-images-panel) ReactJS frontend):
 
-```django
+```djangotemplate
 {% if image_set %}
     {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
 {% else %}
