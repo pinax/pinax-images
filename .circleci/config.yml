@@ -34,7 +34,7 @@ jobs:
   lint:
     <<: *common
     docker:
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6
         environment:
           - TOXENV=checkqa
           - UPLOAD_COVERAGE=0
