@@ -162,6 +162,13 @@ PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
 
 ## Change Log
 
+### 3.0.1
+
+* Standardize documentation, badges
+* Remove django-appconf from setup.py `install_requires`
+* Add third-party libs for isort-ing
+* Add trove classifiers
+
 ### 3.0.0
 
 * Add Django 2.0 compatibility testing
