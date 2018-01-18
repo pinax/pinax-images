@@ -12,6 +12,7 @@
 [![](http://slack.pinaxproject.com/badge.svg)](http://slack.pinaxproject.com/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+
 ## Table of Contents
 
 * [About Pinax](#about-pinax)
@@ -28,11 +29,11 @@
 * [Connect with Pinax](#connect-with-pinax)
 * [License](#license)
 
-## Table of Contents
 
 ## About Pinax
 
 Pinax is an open-source platform built on the Django Web Framework. It is an ecosystem of reusable Django apps, themes, and starter project templates. This collection can be found at http://pinaxproject.com.
+
 
 ## pinax-images
 
@@ -55,13 +56,16 @@ Django \ Python | 2.7 | 3.4 | 3.5 | 3.6
 * `pillow>=3.0`
 * `pytz>=2015.6`
 
+
 ## Documentation
 
 ### Installation
 
 To install pinax-images:
 
-    pip install pinax-images
+```shell
+    $ pip install pinax-images
+```
 
 Add `pinax.images` to your `INSTALLED_APPS` setting:
 
@@ -82,8 +86,6 @@ Add `pinax.images.urls` to your project urlpatterns:
         url(r"^ajax/images/", include("pinax.images.urls", namespace="pinax_images")),
     ]
 ```
-
-
 
 ### Usage
 
@@ -113,7 +115,7 @@ class ObjectCreateView(CreateView):
 Finally, you'll want to include a snippet like this wherever you want the image panel
 to appear (if you are using the associated [pinax-images-panel](http://github.com/pinax/pinax-images-panel) ReactJS frontend):
 
-```djangotemplate
+```django
 {% if image_set %}
     {% url "pinax_images:imageset_upload" image_set.pk as upload_url %}
 {% else %}
@@ -227,6 +229,7 @@ and ping us there instead of creating an issue on GitHub. Creating issues on Git
 also valid but we are usually able to help you faster if you ping us in Slack.
 
 We also highly recommend reading our blog post on [Open Source and Self-Care](http://blog.pinaxproject.com/2016/01/19/open-source-and-self-care/).
+
 
 ## Code of Conduct
 
