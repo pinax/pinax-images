@@ -34,9 +34,7 @@ Pinax Images
 
 \ 
 
-
 ``pinax-images`` is a Django app for managing collections of images associated with a content object.
-
 
 Supported Django and Python Versions
 ------------------------------------
