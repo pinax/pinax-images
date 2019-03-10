@@ -7,7 +7,6 @@ pinax-images
 __pycache__/
 *.py[cod]
 
-
 # Distribution / packaging
 .Python
 env/
@@ -26,6 +25,10 @@ var/
 *.egg
 *.eggs
 .python-version
+
+# Pipfile
+Pipfile
+Pipfile.lock
 
 # Installer logs
 pip-log.txt
