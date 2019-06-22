@@ -18,8 +18,8 @@
 
 * [About Pinax](#about-pinax)
 * [Overview](#overview)
-  * [Supported Django and Python Versions](#supported-django-and-python-versions)
   * [Dependencies](#dependencies)
+  * [Supported Django and Python Versions](#supported-django-and-python-versions)
 * [Documentation](#documentation)
   * [Installation](#installation)
   * [Usage](#usage)
@@ -42,13 +42,6 @@ Pinax is an open-source platform built on the Django Web Framework. It is an eco
 
 `pinax-images` is an app for managing collections of images associated with any content object.
 
-#### Supported Django and Python versions
-
-Django \ Python | 2.7 | 3.4 | 3.5 | 3.6
---------------- | --- | --- | --- | ---
-1.11 |  *  |  *  |  *  |  *  
-2.0  |     |  *  |  *  |  *
-
 #### Dependencies
 
 * `django-appconf>=1.0.1`
@@ -56,6 +49,13 @@ Django \ Python | 2.7 | 3.4 | 3.5 | 3.6
 * `pilkit>=1.1.13`
 * `pillow>=3.0`
 * `pytz>=2015.6`
+
+#### Supported Django and Python versions
+
+Django \ Python | 2.7 | 3.4 | 3.5 | 3.6
+--------------- | --- | --- | --- | ---
+1.11 |  *  |  *  |  *  |  *  
+2.0  |     |  *  |  *  |  *
 
 
 ## Documentation
