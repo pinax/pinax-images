@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 
 from .models import Image, ImageSet
 
@@ -10,7 +11,9 @@ class ImageInline(admin.TabularInline):
 
     def preview(self, obj):
         if obj.pk:
-            return "<img src='{}' />".format(obj.small_thumbnail.url)
+            return format_html(
+                "<img src='{}' />".format(obj.small_thumbnail.url)
+            )
         return "Upload image for preview"
     preview.allow_tags = True
 
