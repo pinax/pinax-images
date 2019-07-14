@@ -165,6 +165,10 @@ PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
 
 ## Change Log
 
+### 3.0.2
+
+* Use format_html() to escape html tags in admin preview
+
 ### 3.0.1
 
 * Standardize documentation, badges
