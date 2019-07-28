@@ -74,7 +74,7 @@ Add `pinax.images` to your `INSTALLED_APPS` setting:
 INSTALLED_APPS = [
     # other apps
     "pinax.images",
-    ]
+]
 ```
 
 `pinax-images`-specific settings can be found in the [Settings](#settings) section.
