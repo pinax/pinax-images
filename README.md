@@ -71,10 +71,10 @@ To install pinax-images:
 Add `pinax.images` to your `INSTALLED_APPS` setting:
 
 ```python
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     # other apps
     "pinax.images",
-)
+    ]
 ```
 
 `pinax-images`-specific settings can be found in the [Settings](#settings) section.
