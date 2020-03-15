@@ -47,15 +47,15 @@ Pinax is an open-source platform built on the Django Web Framework. It is an eco
 * `django-appconf>=1.0.1`
 * `django-imagekit>=3.2.7`
 * `pilkit>=1.1.13`
-* `pillow>=3.0`
-* `pytz>=2015.6`
+* `pillow>=3.3.0`
+* `pytz>=2016.6.1`
 
 #### Supported Django and Python versions
 
-Django \ Python | 2.7 | 3.4 | 3.5 | 3.6
---------------- | --- | --- | --- | ---
-1.11 |  *  |  *  |  *  |  *  
-2.0  |     |  *  |  *  |  *
+Django / Python | 3.6 | 3.7 | 3.8
+--------------- | --- | --- | ---  
+2.2  |  *  |  *  |  *   
+3.0  |  *  |  *  |  *  
 
 
 ## Documentation
