@@ -62,7 +62,7 @@ Where you can find what you need:
 * `pillow>=3.3.0`
 * `pytz>=2016.6.1`
 
-#### Supported Django and Python versions
+#### Supported Django and Python Versions
 
 Django / Python | 3.6 | 3.7 | 3.8
 --------------- | --- | --- | ---  
