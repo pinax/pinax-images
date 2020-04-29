@@ -1,8 +1,9 @@
+from unittest import mock
+
 from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 
-from ..compat import mock
 from ..models import Image
 from .test import TestCase
 
