@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-VERSION = "3.0.2"
+VERSION = "4.0.0"
 LONG_DESCRIPTION = """
 .. image:: http://pinaxproject.com/pinax-design/patches/pinax-images.svg
     :target: https://pypi.python.org/pypi/pinax-images/
@@ -12,7 +12,7 @@ Pinax Images
 .. image:: https://img.shields.io/pypi/v/pinax-images.svg
     :target: https://pypi.python.org/pypi/pinax-images/
 
-\ 
+\
 
 .. image:: https://img.shields.io/circleci/project/github/pinax/pinax-images.svg
     :target: https://circleci.com/gh/pinax/pinax-images
@@ -25,14 +25,14 @@ Pinax Images
 .. image:: https://img.shields.io/github/issues-pr-closed/pinax/pinax-images.svg
     :target: https://github.com/pinax/pinax-images/pulls?q=is%3Apr+is%3Aclosed
 
-\ 
+\
 
 .. image:: http://slack.pinaxproject.com/badge.svg
     :target: http://slack.pinaxproject.com/
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :target: https://opensource.org/licenses/MIT/
 
-\ 
+\
 
 ``pinax-images`` is a Django app for managing collections of images associated with a content object.
 
@@ -40,11 +40,11 @@ Supported Django and Python Versions
 ------------------------------------
 
 +-----------------+-----+-----+-----+-----+
-| Django \ Python | 2.7 | 3.4 | 3.5 | 3.6 |
+| Django \ Python | 3.5 | 3.6 | 3.7 | 3.8 |
 +=================+=====+=====+=====+=====+
-| 1.11            |  *  |  *  |  *  |  *  |
+| 2.2             |  *  |  *  |  *  |  *  |
 +-----------------+-----+-----+-----+-----+
-| 2.0             |     |  *  |  *  |  *  |
+| 3.0             |     |  *  |  *  |  *  |
 +-----------------+-----+-----+-----+-----+
 """
 
@@ -65,30 +65,28 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Django",
-        "Framework :: Django :: 1.11",
-        "Framework :: Django :: 2.0",
+        "Framework :: Django :: 2.2",
+        "Framework :: Django :: 3.0",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     install_requires=[
-        "django>=1.11",
-        "django-imagekit>=3.2.7",
-        "pilkit>=1.1.13",
-        "pillow>=3.3.0",
-        "pytz>=2016.6.1",
+        "django>=2.2",
+        "django-imagekit>=4.0.2",
+        "pilkit>=2.0.0",
+        "pillow>=7.1.2",
+        "pytz>=2020.1",
     ],
     tests_require=[
-        "django-test-plus>=1.0.11",
-        "mock>=2.0.0",
+        "django-test-plus>=1.4.0",
     ],
     test_suite="runtests.runtests",
     zip_safe=False
