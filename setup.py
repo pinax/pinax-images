@@ -79,14 +79,13 @@ setup(
     ],
     install_requires=[
         "django>=2.2",
-        "django-imagekit>=3.2.7",
-        "pilkit>=1.1.13",
-        "pillow>=3.3.0",
-        "pytz>=2016.6.1",
+        "django-imagekit>=4.0.2",
+        "pilkit>=2.0.0",
+        "pillow>=7.1.2",
+        "pytz>=2020.1",
     ],
     tests_require=[
-        "django-test-plus>=1.0.11",
-        "mock>=2.0.0",
+        "django-test-plus>=1.4.0",
     ],
     test_suite="runtests.runtests",
     zip_safe=False

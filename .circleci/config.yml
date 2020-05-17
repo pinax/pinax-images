@@ -86,4 +86,3 @@ workflows:
       - py37dj30
       - py38dj22
       - py38dj30
-
