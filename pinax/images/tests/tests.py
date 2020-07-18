@@ -63,7 +63,7 @@ class ImageSetUploadView(TestCase):
             self.assertEqual(self.user.images.get().image_set, image_set)
 
 
-class ImageSetMixin(object):
+class ImageSetMixin:
 
     def setUp(self):
         self.user = self.make_user("arthur")
@@ -84,7 +84,7 @@ class ImageSetMixin(object):
 class ImageSetDetailView(ImageSetMixin, TestCase):
 
     def setUp(self):
-        super(ImageSetDetailView, self).setUp()
+        super().setUp()
         self.view_url = "pinax_images:imageset_detail"
 
     def test_detail_by_anonymous(self):
@@ -121,7 +121,7 @@ class ImageSetDetailView(ImageSetMixin, TestCase):
 class ImageDeleteView(ImageSetMixin, TestCase):
 
     def setUp(self):
-        super(ImageDeleteView, self).setUp()
+        super().setUp()
         self.view_url = "pinax_images:image_delete"
 
     def test_delete_by_anonymous(self):
@@ -162,7 +162,7 @@ class ImageDeleteView(ImageSetMixin, TestCase):
 class ImageTogglePrimaryView(ImageSetMixin, TestCase):
 
     def setUp(self):
-        super(ImageTogglePrimaryView, self).setUp()
+        super().setUp()
         self.view_url = "pinax_images:image_make_primary"
 
     def test_toggle_by_anonymous(self):

@@ -12,7 +12,7 @@ def image_upload_to(instance, filename):
     instance.original_filename = filename
     uid = str(uuid.uuid4())
     ext = filename.split(".")[-1].lower()
-    return "pinax-images/image-set-{}/{}.{}".format(instance.image_set.pk, uid, ext)
+    return f"pinax-images/image-set-{instance.image_set.pk}/{uid}.{ext}"
 
 
 class ImageSet(models.Model):

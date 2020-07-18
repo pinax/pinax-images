@@ -12,7 +12,7 @@ class ImageInline(admin.TabularInline):
     def preview(self, obj):
         if obj.pk:
             return format_html(
-                "<img src='{}' />".format(obj.small_thumbnail.url)
+                f"<img src='{obj.small_thumbnail.url}' />"
             )
         return "Upload image for preview"
     preview.allow_tags = True

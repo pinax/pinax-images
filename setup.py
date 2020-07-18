@@ -39,13 +39,13 @@ Pinax Images
 Supported Django and Python Versions
 ------------------------------------
 
-+-----------------+-----+-----+-----+-----+
-| Django \ Python | 3.5 | 3.6 | 3.7 | 3.8 |
-+=================+=====+=====+=====+=====+
-| 2.2             |  *  |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+-----+
-| 3.0             |     |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+-----+
++-----------------+-----+-----+-----+
+| Django / Python | 3.6 | 3.7 | 3.8 |
++=================+=====+=====+=====+
+|  2.2            |  *  |  *  |  *  |
++-----------------+-----+-----+-----+
+|  3.0            |  *  |  *  |  *  |
++-----------------+-----+-----+-----+
 """
 
 setup(
@@ -72,7 +72,6 @@ setup(
         "Operating System :: OS Independent",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
