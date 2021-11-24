@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/pypi/v/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 
-[![CircleCi](https://img.shields.io/circleci/project/github/pinax/pinax-images.svg)](https://circleci.com/gh/pinax/pinax-images)
+![Build](https://github.com/pinax/pinax-images/actions/workflows/ci.yaml/badge.svg)
 [![Codecov](https://img.shields.io/codecov/c/github/pinax/pinax-images.svg)](https://codecov.io/gh/pinax/pinax-images)
 [![](https://img.shields.io/github/contributors/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/graphs/contributors)
 [![](https://img.shields.io/github/issues-pr/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/pulls)

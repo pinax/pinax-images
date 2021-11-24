@@ -48,10 +48,13 @@ jobs:
 
       - name: Running Python Tests
         run: coverage run runtests.py
-      - name: Generating Coverage Report Artifact
+      - name: Upload Coverage Report
+        if: matrix.django == "3.2.*" && matrix.python == "3.10"
         run: |
-          coverage html
-          zip coverage-html.zip htmlcov/*
+          pip install codecov
+          coverage xml
+          codecov --required -X search gcov pycov -f coverage.xml
+
       - name: Store Coverage Report Artifact
         uses: actions/upload-artifact@v1
         with:
