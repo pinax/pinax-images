@@ -49,7 +49,7 @@ jobs:
       - name: Running Python Tests
         run: coverage run runtests.py
       - name: Upload Coverage Report
-        if: matrix.django == "3.2.*" && matrix.python == "3.10"
+        if: matrix.django == '3.2.*' && matrix.python == '3.10'
         run: |
           pip install codecov
           coverage xml
