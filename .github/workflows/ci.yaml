@@ -42,10 +42,12 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Install Django and Testing Tools
-        run: pip install Django==${{ matrix.django }} coverage
+        run: |
+          pip install Django==${{ matrix.django }} coverage
+          pip install .
 
       - name: Running Python Tests
-        run: coverage run setup.py test
+        run: coverage run runtests.py
       - name: Generating Coverage Report Artifact
         run: |
           coverage html
