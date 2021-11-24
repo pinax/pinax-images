@@ -86,9 +86,6 @@ setup(
         "pillow>=7.1.2",
         "pytz>=2020.1",
     ],
-    tests_require=[
-        "django-test-plus>=1.4.0",
-    ],
     test_suite="runtests.runtests",
     zip_safe=False
 )

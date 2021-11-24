@@ -43,7 +43,7 @@ jobs:
 
       - name: Install Django and Testing Tools
         run: |
-          pip install Django==${{ matrix.django }} coverage
+          pip install Django==${{ matrix.django }} coverage django-test-plus
           pip install .
 
       - name: Running Python Tests
