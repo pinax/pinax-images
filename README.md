@@ -64,10 +64,10 @@ Where you can find what you need:
 
 #### Supported Django and Python Versions
 
-Django / Python | 3.6 | 3.7 | 3.8
---------------- | --- | --- | ---  
-2.2  |  *  |  *  |  *   
-3.0  |  *  |  *  |  *  
+Django / Python | 3.6 | 3.7 | 3.8 | 3.9 | 3.10
+--------------- | --- | --- | --- | --- | ----
+2.2  |  *  |  *  |  *  | *  |  *
+3.2  |  *  |  *  |  *  | *  |  *
 
 
 ## Documentation
@@ -176,6 +176,12 @@ PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
 ```
 
 ## Change Log
+
+### Next
+
+* Add Python 3.9 and 3.10 support along with Django 3.2
+* Droppped Django 3.1
+*
 
 ### 4.0.1
 
