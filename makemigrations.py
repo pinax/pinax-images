@@ -23,6 +23,7 @@ DEFAULT_SETTINGS = dict(
     SITE_ID=1,
     ROOT_URLCONF="pinax.images.tests.urls",
     SECRET_KEY="notasecret",
+    DEFAULT_AUTO_FIELD="django.db.models.AutoField",
 )
 
 
