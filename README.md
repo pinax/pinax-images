@@ -177,11 +177,12 @@ PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
 
 ## Change Log
 
-### Next
+### 5.0.0
 
 * Add Python 3.9 and 3.10 support along with Django 3.2
 * Droppped Django 3.1
-*
+* Handled deprecation and some general modernizations
+* Updated packaging
 
 ### 4.0.1
 
