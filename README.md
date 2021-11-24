@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/pypi/v/pinax-images.svg)](https://pypi.python.org/pypi/pinax-images/)
 
-[![CircleCi](https://img.shields.io/circleci/project/github/pinax/pinax-images.svg)](https://circleci.com/gh/pinax/pinax-images)
+[![Build](https://github.com/pinax/pinax-images/actions/workflows/ci.yaml/badge.svg)](https://github.com/pinax/pinax-images/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/pinax/pinax-images.svg)](https://codecov.io/gh/pinax/pinax-images)
 [![](https://img.shields.io/github/contributors/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/graphs/contributors)
 [![](https://img.shields.io/github/issues-pr/pinax/pinax-images.svg)](https://github.com/pinax/pinax-images/pulls)
@@ -64,10 +64,10 @@ Where you can find what you need:
 
 #### Supported Django and Python Versions
 
-Django / Python | 3.6 | 3.7 | 3.8
---------------- | --- | --- | ---  
-2.2  |  *  |  *  |  *   
-3.0  |  *  |  *  |  *  
+Django / Python | 3.6 | 3.7 | 3.8 | 3.9 | 3.10
+--------------- | --- | --- | --- | --- | ----
+2.2  |  *  |  *  |  *  | *  |  *
+3.2  |  *  |  *  |  *  | *  |  *
 
 
 ## Documentation
@@ -176,6 +176,13 @@ PINAX_IMAGES_THUMBNAIL_SPEC = "{{my_app}}.specs.MyCustomImageThumbnail"
 ```
 
 ## Change Log
+
+### 5.0.0
+
+* Add Python 3.9 and 3.10 support along with Django 3.2
+* Droppped Django 3.1
+* Handled deprecation and some general modernizations
+* Updated packaging
 
 ### 4.0.1
 

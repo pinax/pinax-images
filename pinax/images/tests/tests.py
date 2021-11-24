@@ -4,6 +4,8 @@ from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.urls import reverse
 
+from imagekit.registry import generator_registry
+
 from ..models import Image
 from .test import TestCase
 
@@ -212,3 +214,15 @@ class ImageTogglePrimaryView(ImageSetMixin, TestCase):
         with self.login(self.user):
             self.post(self.view_url, 555)
             self.response_404()
+
+
+class TestImageSpecs(TestCase):
+
+    def test_registered_specs(self):
+        self.assertEqual(list(generator_registry.get_ids()), [
+            "imagekit:thumbnail",
+            "pinax_images:image:thumbnail",
+            "pinax_images:image:list_thumbnail",
+            "pinax_images:image:small_thumbnail",
+            "pinax_images:image:medium_thumbnail"
+        ])
